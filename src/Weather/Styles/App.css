@@ -1,0 +1,56 @@
+* {
+  position:relative;
+}
+body {
+  margin:0;
+  padding-bottom:30px;
+}
+
+#searchContainer {
+  padding-top:30px;
+  width:100%;
+  text-align:center;
+}
+#searchWrapper {
+  display:inline-block;
+  padding-right:20px;
+}
+#currentWrapper {
+  width:80%;
+  left:10%;
+  padding-top:30px;
+  font-size:20px;
+}
+#selectionMenu {
+  text-align:center;
+  width:100%;
+  padding-top:30px;
+}
+.dayWrapper {
+  width:80%;
+  left:10%;
+  padding-top:30px;
+}
+.dayWrapper P {
+  font-size:20px;
+  display:inline-block;
+  padding:10px;
+  margin:0;
+}
+.dayWrapper H1 {
+  display:inline-block;
+}
+.hourWrapper {
+  padding:10px 20px;
+}
+.hourWrapper P {
+  font-size:20px;
+  display:inline-block;
+  padding:10px;
+  margin:0;
+}
+.big {
+  font-size:30px;
+  padding-top:15px;
+  padding-right:15px;
+}
