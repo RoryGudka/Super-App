@@ -1,14 +1,16 @@
 import './Styles/App.css';
-import { React, useState, useEffect} from 'react';
+import { React, useState, useEffect, useContext} from 'react';
 import Places from './Utils/Places.js';
 import Map from './Utils/Map.js';
 import Search from './Components/Search.js';
 import Sort from './Components/Sort.js';
 import Collection from './Components/Collection.js';
+import {LocationContext} from '../Components/LocationProvider.js';
 
 
 
 function App() {
+  const {location} = useContext(LocationContext);
   const [options, setOptions] = useState([]);
   const [images, setImages] = useState([]);
   const [distances, setDistances] = useState([]);
@@ -22,9 +24,16 @@ function App() {
   
   useEffect(() => {
     let map = new Map();
-    map.createMap(38.0293, -78.4767, 13, 8046.7);
-    Places.search(38.0293, -78.4767, 5, "restaurant", "", [0, 4], setOptions, setImages, map, setNextPage, setDistances)
+    if(location !== "") {
+      map.createMap(38.0293, -78.4767, 13, 8046.7);
+      Places.searchByAddress(location, 5, "restaurant", "", [0, 4], setOptions, setImages, map, setNextPage, setDistances)
+    }
+    else {
+      map.createMap(38.0293, -78.4767, 13, 8046.7);
+      Places.search(38.0293, -78.4767, 5, "restaurant", "", [0, 4], setOptions, setImages, map, setNextPage, setDistances)
+    }
     setMap(map);
+    
   }, []);
 
   useEffect(() => {

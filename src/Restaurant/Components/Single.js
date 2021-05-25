@@ -15,7 +15,7 @@ const Single = props => {
                 <div style={{padding:'5px'}}>
                     <p style={{margin:'5px'}}><b>{props.data.name}</b></p>
                     <div className="starContainer" style={{margin:'5px'}}>
-                        <img src="stars.jpg" className="stars" alt="" />
+                        <img src="/stars.jpg" className="stars" alt="" />
                         <div className="starCover" style={{width:rating + '%'}}></div>
                     </div> 
                     <p style={{display:"inline-block", margin:'5px'}}>({props.data.rating}) {price}</p>

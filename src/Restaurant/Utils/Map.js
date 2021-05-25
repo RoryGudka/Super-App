@@ -89,7 +89,7 @@ class Map {
             newStr += "]";
             const showDirectionsHTML = "const evt = new CustomEvent('showDirections', {detail: {poly:\'" + newStr + "\'}});document.dispatchEvent(evt);";
             const directionsHTML = "<p class='directionsLink' onclick=\"" + showDirectionsHTML + "\"><u>Show Directions</u></p>";
-            marker.bindPopup('<b>' + options[i].name + '</b><br>' + '<div class="starContainer"><img src="stars.jpg" class="stars"><div class="starCover" style="width:' + rating + '%"></div></div>' + '(' + options[i].rating + ') ' + price + " " + options[i].distText + directionsHTML);
+            marker.bindPopup('<b>' + options[i].name + '</b><br>' + '<div class="starContainer"><img src="/stars.jpg" class="stars"><div class="starCover" style="width:' + rating + '%"></div></div>' + '(' + options[i].rating + ') ' + price + " " + options[i].distText + directionsHTML);
             markers.push(marker);
             
             

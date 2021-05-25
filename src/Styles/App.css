@@ -38,3 +38,17 @@
   height:100%;
   object-fit:cover;
 }
+
+#locationSetter {
+  margin-top:20px;
+  width:100%;
+  text-align:center;
+}
+#locationWrapper {
+  display:inline-block;
+}
+#locationBtnWrapper {
+  margin-left:20px;
+  display:inline-block;
+  top:15px;
+}

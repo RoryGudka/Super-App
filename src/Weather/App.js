@@ -1,5 +1,5 @@
 import './Styles/App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import {nanoid} from "nanoid";
 import {WEATHER_KEY} from '../Keys.js';
 import Button from "@material-ui/core/Button";
@@ -7,16 +7,20 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import {LocationContext} from '../Components/LocationProvider.js';
 
 
 
 function App() {
+  const {location} = useContext(LocationContext);
   const [current, setCurrent] = useState(null);
   const [weather, setWeather] = useState(null);
   const [selection, setSelection] = useState("daily");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(location !== "" ? location : "Charlottesville");
 
-
+  useEffect(() => {
+    handleSearch();
+  }, [])
 
   const handleSearch = e => {
     if(isNaN(parseInt(searchQuery))) {
