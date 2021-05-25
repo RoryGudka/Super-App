@@ -1,7 +1,7 @@
 import {useContext, useState} from 'react';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {LocationContext} from './LocationProvider.js';
+import {LocationContext} from './LocationProvider';
+import DarkTextField from './DarkTextField';
 
 const LocationSetter = props => {
     const {location, setLocation} = useContext(LocationContext);
@@ -10,7 +10,7 @@ const LocationSetter = props => {
     return (
         <div id="locationSetter">
             <div id="locationWrapper">
-                <TextField label="Location" value={locationValue} onChange={e => setLocationValue(e.target.value)} />
+                <DarkTextField label="Location" value={locationValue} onChange={e => setLocationValue(e.target.value)} />
             </div>
             <div id="locationBtnWrapper">
                 <Button variant="contained" color="primary" onClick={() => {

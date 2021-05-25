@@ -4,14 +4,18 @@ import {nanoid} from "nanoid";
 import {WEATHER_KEY} from '../Keys.js';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import DarkTextField from "../Components/DarkTextField";
+import DarkPaper from "../Components/DarkPaper";
 import Paper from "@material-ui/core/Paper";
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import {LocationContext} from '../Components/LocationProvider.js';
+import {LocationContext} from '../Components/LocationProvider';
+import {DarkModeContext} from '../Components/DarkModeProvider';
 
 
 
 function App() {
+  const {darkMode} = useContext(DarkModeContext);
   const {location} = useContext(LocationContext);
   const [current, setCurrent] = useState(null);
   const [weather, setWeather] = useState(null);
@@ -93,19 +97,19 @@ function App() {
   let index = 0;
   const daily = weather !== null && weather.daily.map(day => (
     <div key={nanoid()} className="dayWrapper">
-      <Paper style={{padding:"1px 20px"}}elevation={3}>
-        {day.weather[0].main === "Clouds" ? <i className="big fas fa-cloud"></i> : day.weather[0].main === "Rain" ? <i className="big fas fa-cloud-showers-heavy"></i> : day.weather[0].main === "Clear" ? <i className="big fas fa-sun"></i>: ""}
-        <h1>{daysOfWeek[index++]}</h1>
-        <br></br>
-        <p>{"Morning: " + day.temp.morn + "°F"}</p>
-        <p>{"Day: " + day.temp.day + "°F"}</p>
-        <p>{"Evening: " + day.temp.eve + "°F"}</p>
-        <p>{"Night: " + day.temp.night + "°F"}</p>
-        <p>{"Min: " + day.temp.min + "°F"}</p>
-        <p>{"Max: " + day.temp.max + "°F"}</p>
-        <p>{"Humidity: " + day.humidity + "%"}</p>
-        <p>{"Pressure: " + day.pressure}</p>
-      </Paper>
+        <DarkPaper style={{padding:"1px 20px"}}elevation={3}>
+          {day.weather[0].main === "Clouds" ? <i className="big fas fa-cloud"></i> : day.weather[0].main === "Rain" ? <i className="big fas fa-cloud-showers-heavy"></i> : day.weather[0].main === "Clear" ? <i className="big fas fa-sun"></i>: ""}
+          <h1>{daysOfWeek[index++]}</h1>
+          <br></br>
+          <p>{"Morning: " + day.temp.morn + "°F"}</p>
+          <p>{"Day: " + day.temp.day + "°F"}</p>
+          <p>{"Evening: " + day.temp.eve + "°F"}</p>
+          <p>{"Night: " + day.temp.night + "°F"}</p>
+          <p>{"Min: " + day.temp.min + "°F"}</p>
+          <p>{"Max: " + day.temp.max + "°F"}</p>
+          <p>{"Humidity: " + day.humidity + "%"}</p>
+          <p>{"Pressure: " + day.pressure}</p>
+        </DarkPaper>
     </div>
   ));
     
@@ -138,21 +142,22 @@ function App() {
     <div>
       <div id="searchContainer">
         <div id="searchWrapper">
-          <TextField placeholder="Zip Code or City" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
+          {darkMode ? <DarkTextField label="Location" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} /> :
+          <TextField label="Location" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />}
         </div>
         <Button variant="contained" color="primary" onClick={handleSearch}>Search</Button>
       </div>
       {
           current !== null && (
           <div id="currentWrapper">
-            <Paper style={{padding:"1px 20px"}} elevation={3}>
-              <p>{"Curernt Temperature: " + current.main.temp + "°F"}</p>
+            <DarkPaper style={{padding:"1px 20px"}} elevation={3}>
+              <p>{"Current Temperature: " + current.main.temp + "°F"}</p>
               <p>{"High: " + current.main.temp_max + "°F"}</p>
               <p>{"Low: " + current.main.temp_min + "°F"}</p>
               <p>{"Feels Like: " + current.main.feels_like + "°F"}</p>
               <p>{"Humidity: " + current.main.humidity + "%"}</p>
               <p>{"Pressure: " + current.main.pressure}</p>
-            </Paper>
+            </DarkPaper>
           </div>
         )
       }
@@ -164,9 +169,9 @@ function App() {
       </div>
       <div>
         {selection === "daily" ? daily : (
-          <Paper style={{left:"10%", width:"80%", marginTop:"30px"}} elevation={3}>
+          <DarkPaper style={{left:"10%", width:"80%", marginTop:"30px"}} elevation={3}>
             {hourly}
-          </Paper>
+          </DarkPaper>
         )}
       </div>
     </div>

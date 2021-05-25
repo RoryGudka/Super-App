@@ -33,7 +33,6 @@ function App() {
       Places.search(38.0293, -78.4767, 5, "restaurant", "", [0, 4], setOptions, setImages, map, setNextPage, setDistances)
     }
     setMap(map);
-    
   }, []);
 
   useEffect(() => {

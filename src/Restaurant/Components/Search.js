@@ -7,6 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
+import DarkPaper from '../../Components/DarkPaper';
+import DarkTextField from '../../Components/DarkTextField';
 
 const Search = props => {
     const [address, setAddress] = useState("");
@@ -29,9 +31,9 @@ const Search = props => {
     ]
 
     return (
-        <Paper elevation={5} id="searchItemsWrapper">
+        <DarkPaper elevation={5} id="searchItemsWrapper">
             <div id="addressWrapper">
-                <TextField fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)} />
+                <DarkTextField fullWidth label="Address" value={address} onChange={e=>setAddress(e.target.value)} />
             </div>
             <div id="typeWrapper">
                 <InputLabel id="typeSelect">Type</InputLabel>
@@ -42,7 +44,7 @@ const Search = props => {
                 </Select>
             </div>
             <div id="keywordWrapper">
-                <TextField fullWidth style={{marginTop:'-18px'}} label="Keywords" value={keyword} onChange={e => setKeyword(e.target.value)} />
+                <DarkTextField fullWidth style={{marginTop:'-18px'}} label="Keywords" value={keyword} onChange={e => setKeyword(e.target.value)} />
             </div>
             <br></br>
             <div id="radiusWrapper">
@@ -63,7 +65,7 @@ const Search = props => {
                     props.Places.searchByAddress(address, radius, typeStr, keyword, price, props.setOptions, props.setImages, props.map, props.setNextPage, props.setDistances);
                 }}>Search</Button>
             </div>
-        </Paper>
+        </DarkPaper>
     )
 }
 

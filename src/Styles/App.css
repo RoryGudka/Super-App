@@ -39,16 +39,48 @@
   object-fit:cover;
 }
 
-#locationSetter {
+#setters {
   margin-top:20px;
   width:100%;
   text-align:center;
 }
+
+#locationSetter {
+  display:inline-block;
+}
+
 #locationWrapper {
   display:inline-block;
 }
+
 #locationBtnWrapper {
   margin-left:20px;
   display:inline-block;
   top:15px;
+}
+
+#darkModeSetter {
+  display:inline-block;
+  top:15px;
+  margin-left:50px;
+}
+
+#darkBody {
+  min-height:100vh;
+  background-color:#363940;
+  padding-bottom:30px;
+  margin-bottom:-30px;
+}
+
+
+.darkPaper P {
+  color:lightgrey;
+}
+
+.darkPaper H1 {
+  color:white;
+}
+
+.darkPaper I {
+  color:grey;
 }
