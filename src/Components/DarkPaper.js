@@ -5,7 +5,7 @@ import {DarkModeContext} from '../Components/DarkModeProvider';
 
 const useStyles = makeStyles({
     root: {
-        backgroundColor:"#303136;",
+        backgroundColor:"#303136",
     }
 })
 

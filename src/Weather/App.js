@@ -6,8 +6,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import DarkTextField from "../Components/DarkTextField";
 import DarkPaper from "../Components/DarkPaper";
-import Paper from "@material-ui/core/Paper";
-import ToggleButton from '@material-ui/lab/ToggleButton';
+import DarkToggleButton from '../Components/DarkToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import {LocationContext} from '../Components/LocationProvider';
 import {DarkModeContext} from '../Components/DarkModeProvider';
@@ -163,8 +162,8 @@ function App() {
       }
       <div id="selectionMenu">
         <ToggleButtonGroup value={selection} exclusive onChange={handleSelection}>
-            <ToggleButton value="daily">Daily</ToggleButton>
-            <ToggleButton value="hourly">Hourly</ToggleButton>
+            <DarkToggleButton value="daily">Daily</DarkToggleButton>
+            <DarkToggleButton value="hourly">Hourly</DarkToggleButton>
         </ToggleButtonGroup>
       </div>
       <div>

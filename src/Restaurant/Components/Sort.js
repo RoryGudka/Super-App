@@ -1,9 +1,11 @@
-import {useEffect, useState} from 'react';
-import ToggleButton from '@material-ui/lab/ToggleButton';
+import {useEffect, useState, useContext} from 'react';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import Button from '@material-ui/core/Button'
+import {DarkModeContext} from '../../Components/DarkModeProvider';
+import DarkToggleButton from '../../Components/DarkToggleButton';
 
 const Sort = props => {
+    const {darkMode} = useContext(DarkModeContext);
     const [selection, setSelection] = useState("rating")
     const [options, setOptions] = useState(props.options);
 
@@ -125,11 +127,11 @@ const Sort = props => {
     return (
         <div>
             <div style={{textAlign:"center"}}>
-                <p id="sortLabel">Sort by:</p>
+                <p id={darkMode ? "darkSortLabel" : "sortLabel"}>Sort by:</p>
                 <ToggleButtonGroup value={selection} exclusive onChange={handleSelection}>
-                    <ToggleButton style={{color:"black"}} value="rating">Rating</ToggleButton>
-                    <ToggleButton style={{color:"black"}} value="distance">Distance</ToggleButton>
-                    <ToggleButton style={{color:"black"}} value="name">Name</ToggleButton>
+                    <DarkToggleButton value="rating">Rating</DarkToggleButton>
+                    <DarkToggleButton value="distance">Distance</DarkToggleButton>
+                    <DarkToggleButton value="name">Name</DarkToggleButton>
                 </ToggleButtonGroup>
             </div>
             <div id="loadMoreWrapper">

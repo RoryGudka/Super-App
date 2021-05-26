@@ -127,6 +127,13 @@
   font-size:20px;
 }
 
+#darkSortLabel {
+  display:inline-block;
+  margin-right:20px;
+  font-size:20px;
+  color:lightgrey;
+}
+
 #loadMoreWrapper {
   position:absolute;
   right:10%;

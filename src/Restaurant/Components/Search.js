@@ -1,6 +1,4 @@
 import { React, useState } from 'react';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -9,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import DarkPaper from '../../Components/DarkPaper';
 import DarkTextField from '../../Components/DarkTextField';
+import DarkSelect from '../../Components/DarkSelect';
 
 const Search = props => {
     const [address, setAddress] = useState("");
@@ -37,11 +36,11 @@ const Search = props => {
             </div>
             <div id="typeWrapper">
                 <InputLabel id="typeSelect">Type</InputLabel>
-                <Select fullWidth labelId="typeSelect" value={type} onChange={e=>setType(e.target.value)}>
+                <DarkSelect fullWidth labelId="typeSelect" value={type} onChange={e=>setType(e.target.value)}>
                     <MenuItem value={0}>Restaurant</MenuItem>
                     <MenuItem value={1}>Cafe</MenuItem>
                     <MenuItem value={2}>Bar</MenuItem>
-                </Select>
+                </DarkSelect>
             </div>
             <div id="keywordWrapper">
                 <DarkTextField fullWidth style={{marginTop:'-18px'}} label="Keywords" value={keyword} onChange={e => setKeyword(e.target.value)} />
